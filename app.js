@@ -9,7 +9,7 @@ io.sockets.on('connection', function (socket) {
   socket.on('clients', function(data){
     console.log(data);
     if(data){
-      socket.emit('tospotify', {songId: 'sendToSpotify'});
+      io.socket.emit('tospotify', {songId: 'sendToSpotify'});
     }
     
   });
