@@ -8,6 +8,8 @@ io.sockets.on('connection', function (socket) {
 
   socket.on('clients', function(data){
     console.log(data);
-    socket.emit('tospotify', {songId: 'sendToSpotify'});
+    
   });
+
+  socket.emit('tospotify', {songId: 'sendToSpotify'});
 });
