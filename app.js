@@ -8,15 +8,8 @@ io.sockets.on('connection', function (socket) {
 
   socket.on('clients', function(data){
     console.log(data);
-
-    if(data){
-      sendToSpotify();
-    }
+    socket.broadcast.emit('tospotify', {songId: 'sendToSpotify'});
   });
-
-  function sendToSpotify(){
-    socket.emit('tospotify', {songId: 'sendToSpotify'});
-  }
 
   
 });
