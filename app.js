@@ -1,12 +1,17 @@
-var http = require("http");
-
-function onRequest(request, response) {
-  console.log("Request received.");
-  response.writeHead(200, {"Content-Type": "text/plain"});
-  response.write("Hello World");
-  response.end();
-}
-
-http.createServer(onRequest).listen(8080);
-
-console.log("Server has started.");
+var fs = require('fs')
+    , http = require('http')
+    , socketio = require('socket.io');
+ 
+var server = http.createServer(function(req, res) {
+    res.writeHead(200, { 'Content-type': 'text/html'});
+    res.end(fs.readFileSync(__dirname + '/index.html'));
+}).listen(8080, function() {
+    console.log('Listening at: http://87.255.55.193:8080');
+});
+ 
+socketio.listen(server).on('connection', function (socket) {
+    socket.on('message', function (msg) {
+        console.log('Message Received: ', msg);
+        socket.broadcast.emit('message', msg);
+    });
+});
