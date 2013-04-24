@@ -1,17 +1,8 @@
-var fs = require('fs')
-    , http = require('http')
-    , socketio = require('socket.io');
- 
-var server = http.createServer(function(req, res) {
-    res.writeHead(200, { 'Content-type': 'text/html'});
-    res.end(fs.readFileSync(__dirname + '/index.html'));
-}).listen(8080, function() {
-    console.log('Listening at: http://87.255.55.193:8080');
-});
- 
-socketio.listen(server).on('connection', function (socket) {
-    socket.on('message', function (msg) {
-        console.log('Message Received: ', msg);
-        socket.broadcast.emit('message', msg);
-    });
+var io = require('socket.io').listen(8080);
+
+io.sockets.on('connection', function (socket) {
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', function (data) {
+    console.log(data);
+  });
 });
