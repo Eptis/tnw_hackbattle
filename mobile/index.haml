@@ -1,7 +1,7 @@
 %html{"ng-app" => "SpotifyPlaylistBuilder"}
   %head
     %title Spotify Playlist Builder
-    %meta{ :name => 'viewport', :content => 'width=device-width, initial-scale=1.0, minimal-scale=1.0, maximum-scale=1.0' }
+    %meta{ :name => 'viewport', :content => 'width=device-width, initial-scale=1.0' }
     %meta{:name => "apple-mobile-web-app-capable", :content => "yes"}
     %meta{ :name => "apple-mobile-web-app-status-bar-style", :content => "black"}
     %link{:rel => "stylesheet", :href => "css/fontface.css"}
@@ -24,6 +24,8 @@
           %button.icon-search{:type => "submit", :value => "\f002", "ng-click" => "getData(search_input)"}
           
       .playlist
+        #loader{"ng-show" => "loader == true", "ng-animate" => "'view'"}
+          loading...
         %ul
           %li.clearfix{"ng-repeat" => "item in data", "ng-animate" => "'view'"}
             .btn{"ng-click" => "sendSong(item.href, item.name)", "ng-hide" => "checkIfAdded(item.href)", "ng-animate" => "'fade'"}

@@ -1,7 +1,7 @@
 <html ng-app='SpotifyPlaylistBuilder'>
   <head>
     <title>Spotify Playlist Builder</title>
-    <meta content='width=device-width, initial-scale=1.0, minimal-scale=1.0, maximum-scale=1.0' name='viewport'>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <meta content='yes' name='apple-mobile-web-app-capable'>
     <meta content='black' name='apple-mobile-web-app-status-bar-style'>
     <link href='css/fontface.css' rel='stylesheet'>
@@ -25,6 +25,9 @@
         </form>
       </div>
       <div class='playlist'>
+        <div id='loader' ng-animate="'view'" ng-show='loader == true'>
+          loading...
+        </div>
         <ul>
           <li class='clearfix' ng-animate="'view'" ng-repeat='item in data'>
             <div class='btn' ng-animate="'fade'" ng-click='sendSong(item.href, item.name)' ng-hide='checkIfAdded(item.href)'>

@@ -6,6 +6,8 @@ app.controller('SearchController', function($scope, $http, $timeout) {
 
     $scope.getData = function (query){
         var url = "http://ws.spotify.com/search/1/track.json?q=" + query
+                $scope.loader = true;
+
         $http.get(url).then(function(res){
             if(res.data.tracks.length == 0){
                 $scope.no_results = true;
@@ -13,10 +15,14 @@ app.controller('SearchController', function($scope, $http, $timeout) {
                 $scope.no_results = false;
             }
              var content = [];
-                for (var i=0; i < 20;i++)
+                for (var i=0; i < res.data.tracks.length;i++)
                     { 
                         content.push(res.data.tracks[i])
+                        if(i == 20){
+                            break
+                        }
                     }
+                $scope.loader = false;
 
                 $scope.data = content;               
         });

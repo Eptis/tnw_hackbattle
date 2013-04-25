@@ -214,3 +214,10 @@ form {
   padding: 2%;
   text-align: center;
   font-size: 1.5em; }
+
+#loader {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2em;
+  font-family: Quan-Hairline;
+  letter-spacing: 0.5em; }
