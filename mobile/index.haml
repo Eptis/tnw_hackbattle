@@ -20,7 +20,7 @@
       .playlist
         %ul
           %li.clearfix{"ng-repeat" => "item in data", "ng-animate" => "'view'"}
-            .btn{"ng-click" => "sendSong(item.href)"}
+            .btn{"ng-click" => "sendSong(item.href)", "ng-hide" => "checkIfAdded(item.href)", "ng-animate" => "'fade'"}
               %span +
             .content
               %h2 {{item.name}}

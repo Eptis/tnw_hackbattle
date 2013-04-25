@@ -20,7 +20,7 @@
       <div class='playlist'>
         <ul>
           <li class='clearfix' ng-animate="'view'" ng-repeat='item in data'>
-            <div class='btn' ng-click='sendSong(item.href)'>
+            <div class='btn' ng-animate="'fade'" ng-click='sendSong(item.href)' ng-hide='checkIfAdded(item.href)'>
               <span>+</span>
             </div>
             <div class='content'>

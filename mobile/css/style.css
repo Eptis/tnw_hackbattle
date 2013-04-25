@@ -143,7 +143,7 @@ form {
   /* Internet Explorer 10+ */
   color: #ccc; }
 
-.view-enter-setup, .view-leave-setup {
+.view-enter-setup, .view-leave-setup, .fade-hide-setup, .fade-show-setup {
   -webkit-transform: translate3d(0, 0, 0);
   -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
   -moz-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
@@ -166,20 +166,18 @@ form {
   opacity: 0;
   margin-top: 10em; }
 
-.fade-hide-setup, .fade-show-setup {
-  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
-  -moz-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
-  -o-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
-  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s; }
-
 .fade-hide-setup {
-  opacity: 1; }
+  opacity: 1;
+  -webkit-transform: scale(1); }
 
 .fade-hide-setup.fade-hide-start {
-  opacity: 0; }
+  opacity: 0;
+  -webkit-transform: scale(0); }
 
 .fade-show-setup {
-  opacity: 0; }
+  opacity: 0;
+  -webkit-transform: scale(0); }
 
 .fade-show-setup.fade-show-start {
-  opacity: 1; }
+  opacity: 1;
+  -webkit-transform: scale(1); }
