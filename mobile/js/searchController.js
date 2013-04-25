@@ -25,7 +25,16 @@ app.controller('SearchController', function($scope, $http, $timeout) {
                 }else{
                     $scope.no_results = false;
                 }
-                $scope.data = res.tracks;  
+
+                var content = [];
+                for (var i=0; i < 20;i++)
+                    { 
+                        content.push(res.tracks[i])
+                    }
+
+                $scope.data = content;
+
+
           });
         });
     }

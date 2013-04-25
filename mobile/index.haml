@@ -1,7 +1,9 @@
 %html{"ng-app" => "SpotifyPlaylistBuilder"}
   %head
     %title Spotify Playlist Builder
-    %meta{ :name => 'viewport', :content => 'width=device-width, initial-scale=1.0' }
+    %meta{ :name => 'viewport', :content => 'width=device-width, initial-scale=1.0, minimal-scale=1.0, maximum-scale=1.0' }
+    %meta{:name => "apple-mobile-web-app-capable", :content => "yes"}
+    %meta{ :name => "apple-mobile-web-app-status-bar-style", :content => "black"}
     %link{:rel => "stylesheet", :href => "css/fontface.css"}
     %link{:rel => "stylesheet", :href => "css/style.css"}
     %script{ :src => "http://87.255.55.193:8080/socket.io/socket.io.js"}
