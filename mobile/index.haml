@@ -12,6 +12,9 @@
 
   %body
     .container{'ng-controller' => "SearchController"}
+      .notif{"ng-show" => "showNotif == true", "ng-animate" => "'notify'", "ng-click" => "showNotif = false"}
+        %span {{songName}} 
+        added to Party Playlist
       .searchbox
         %form.clearfix{"ng-submit" => "getData(search_input)"}
           %input{:type => "search", "ng-model" => "search_input", :placeholder => "Search for Artist or Track"}
@@ -20,7 +23,7 @@
       .playlist
         %ul
           %li.clearfix{"ng-repeat" => "item in data", "ng-animate" => "'view'"}
-            .btn{"ng-click" => "sendSong(item.href)", "ng-hide" => "checkIfAdded(item.href)", "ng-animate" => "'fade'"}
+            .btn{"ng-click" => "sendSong(item.href, item.name)", "ng-hide" => "checkIfAdded(item.href)", "ng-animate" => "'fade'"}
               %span +
             .content
               %h2 {{item.name}}

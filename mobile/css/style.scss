@@ -183,7 +183,7 @@ form{
 	}
 
 
-.view-enter-setup, .view-leave-setup, .fade-hide-setup, .fade-show-setup {
+.view-enter-setup, .view-leave-setup, .fade-hide-setup, .fade-show-setup, .notify-hide-setup, .notify-show-setup {
 	-webkit-transform: translate3d(0,0,0);
   -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
   -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
@@ -226,4 +226,36 @@ form{
 .fade-show-setup.fade-show-start {
   opacity:1;
   -webkit-transform: scale(1);
+}
+
+.notify-hide-setup {
+  opacity:1;
+  max-height: 100px;
+}
+.notify-hide-setup.notify-hide-start {
+  opacity:0;
+  max-height: 0;
+}
+
+.notify-show-setup {
+  opacity:0;
+  max-height: 0;
+}
+.notify-show-setup.notify-show-start {
+  opacity:1;
+  max-height: 100px;
+}
+
+
+.notif{
+	z-index: 99999;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: $accentcolor;
+	color: #fff;
+	width: 96%;
+	padding: 2%;
+	text-align: center;
+	font-size: 1.5em;
 }
