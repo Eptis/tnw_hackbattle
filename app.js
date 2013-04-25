@@ -45,5 +45,5 @@ http.createServer(function(request, response) {
 			response.end();
 		}
 	});
-})
-
+}).listen(8000);
+console.log("http server started on port 8000");
