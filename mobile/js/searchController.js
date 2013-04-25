@@ -6,13 +6,27 @@ app.controller('SearchController', function($scope, $http, $timeout) {
 
     $scope.getData = function (query){
         var url = "http://ws.spotify.com/search/1/track.json?q=" + query
-        $http.get(url).then(function(res){
-            if(res.data.tracks.length == 0){
-                $scope.no_results = true;
-            }else{
-                $scope.no_results = false;
-            }
-            $scope.data = res.data.tracks;                
+        // $http.get(url).then(function(res){
+        //     if(res.data.tracks.length == 0){
+        //         $scope.no_results = true;
+        //     }else{
+        //         $scope.no_results = false;
+        //     }
+        //     $scope.data = res.data.tracks;                
+        // });
+
+
+        $.get(url, function(res) {
+                console.log(res)
+
+          $scope.$apply(function(){
+             if(res.tracks.length == 0){
+                    $scope.no_results = true;
+                }else{
+                    $scope.no_results = false;
+                }
+                $scope.data = res.tracks;  
+          });
         });
     }
     $scope.sendSong = function(songId, songName){
