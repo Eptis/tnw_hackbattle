@@ -12,10 +12,42 @@ io.sockets.on('connection', function (socket) {
 
 
 var http = require('http'),
-    fs = require('fs');
+    fs = require('fs'), path = require('path');
 
+http.createServer(function(request, response) {
+	var filePath = '.' + request.url;
+	if(filePath == './')
+		filePath = './index.html';
+	var extname = path.extname(filePath);
+	var contentType = 'text/html';
+	switch (extname){
+		case '.js':
+			contentType = 'text/javascript';
+			break;
+		case '.css':
+			contentType = 'text/css';
+			break;
+	}
+	path.exists(filePath, function(exists) {
+		if(exists){
+			fs.readFile(filePath, function(error, content){
+				if(error){
+					response.writeHead(500);
+					response.end();
+				}
+				else{
+					response.writeHead(200, { 'Content-Type': 'text/html' });
+					response.end(content, 'utf-8');
+				}
+			});
+		}else{
+			response.writeHead(404);
+			response.end();
+		}
+	});
+})
 
-fs.readFile('./index.html', function (err, html) {
+fs.readFile('./mobile/index.html', function (err, html) {
     if (err) {
         throw err; 
     }       
