@@ -5,9 +5,7 @@ app.controller('SearchController', function($scope, $http, $timeout) {
 
 
     $scope.getData = function (query){
-        // var url = "http://ws.spotify.com/search/1/track.json?q=" + query
-        var url = "http://rijksmuseum.donnywals.com/feed.json"
-
+        var url = "http://ws.spotify.com/search/1/track.json?q=" + query
         $http.get(url).then(function(res){
             if(res.data.tracks.length == 0){
                 $scope.no_results = true;
