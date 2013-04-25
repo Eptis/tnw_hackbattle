@@ -27,6 +27,7 @@ input[type="search"] {
 	font-family: Quan-RoundedLight;
 	display: block;
 	-webkit-appearance: none;
+	padding: 0 1em;
 	border-radius: 1em;
 	margin: 0 auto;
 	background-color: lighten(#000, 20%);
@@ -185,9 +186,14 @@ form{
 
 .view-enter-setup, .view-leave-setup, .fade-hide-setup, .fade-show-setup, .notify-hide-setup, .notify-show-setup {
 	-webkit-transform: translate3d(0,0,0);
+	-ms-transform: translate3d(0,0,0);
+	-moz-transform: translate3d(0,0,0);
+	-o-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
   -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
   -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
   -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  -ms-transition:all 0.5s;
   transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
 }
 
